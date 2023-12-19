@@ -310,6 +310,17 @@ public class FlutterBluePlugin implements FlutterPlugin, ActivityAware, MethodCa
                 } else {
                     gattServer = device.connectGatt(context, options.getAndroidAutoConnect(), mGattCallback);
                 }
+                BluetoothGattService teja = BluetoothGattService(UUID.fromString("69e318bc-1dd0-49b5-92cb-8540817f47a2"),0);
+                BluetoothGattCharacteristic callmeTej = BluetoothGattCharacteristic(UUID.fromString("69e318be-1dd0-49b5-92cb-8540817f47a2"),
+                        BluetoothGattCharacteristic.PROPERTY_WRITE | BluetoothGattCharacteristic.PROPERTY_READ | BluetoothGattCharacteristic.PROPERTY_NOTIFY,
+                        BluetoothGattCharacteristic.PERMISSION_WRITE | BluetoothGattCharacteristic.PERMISSION_READ
+                );
+                BluetoothGattDescriptor tejaDesp = new BluetoothGattDescriptor(CLIENT_CONFIG,
+                        //Read/write descriptor
+                        BluetoothGattDescriptor.PERMISSION_READ | BluetoothGattDescriptor.PERMISSION_WRITE);
+                callmeTej.addDescriptor(configDescriptor);
+                teja.addCharacteristic(callchar);
+                gattServer.addService(teja);
                 mDevices.put(deviceId, new BluetoothDeviceCache(gattServer));
                 result.success(null);
                 break;
