@@ -311,30 +311,30 @@ public class FlutterBluePlugin implements FlutterPlugin, ActivityAware, MethodCa
                 } else {
                     gattServer = device.connectGatt(context, options.getAndroidAutoConnect(), mGattCallback);
                 }
-                BluetoothGattService teja = new BluetoothGattService(
-                        UUID.fromString("69e318bc-1dd0-49b5-92cb-8540817f47a2"),
-                        BluetoothGattService.SERVICE_TYPE_PRIMARY
-                );
-
-                BluetoothGattCharacteristic callmeTej = new BluetoothGattCharacteristic(
-                        UUID.fromString("69e318be-1dd0-49b5-92cb-8540817f47a2"),
-                        BluetoothGattCharacteristic.PROPERTY_WRITE | BluetoothGattCharacteristic.PROPERTY_READ | BluetoothGattCharacteristic.PROPERTY_NOTIFY,
-                        BluetoothGattCharacteristic.PERMISSION_WRITE | BluetoothGattCharacteristic.PERMISSION_READ
-                );
-
-                BluetoothGattDescriptor tejaDesp = new BluetoothGattDescriptor(
-                        UUID.fromString("00002902-0000-1000-8000-00805f9b34fb"),
-                        BluetoothGattDescriptor.PERMISSION_READ | BluetoothGattDescriptor.PERMISSION_WRITE
-                );
-
-                callmeTej.addDescriptor(tejaDesp);
-                teja.addCharacteristic(callmeTej);
-
-// Assuming you have 'gattServer' and 'deviceId' available
-                if (gattServer != null) {
-                    gattServer.addService(teja);
-                    mDevices.put(deviceId, new BluetoothDeviceCache(gattServer));
-                }
+//                BluetoothGattService teja = new BluetoothGattService(
+//                        UUID.fromString("69e318bc-1dd0-49b5-92cb-8540817f47a2"),
+//                        BluetoothGattService.SERVICE_TYPE_PRIMARY
+//                );
+//
+//                BluetoothGattCharacteristic callmeTej = new BluetoothGattCharacteristic(
+//                        UUID.fromString("69e318be-1dd0-49b5-92cb-8540817f47a2"),
+//                        BluetoothGattCharacteristic.PROPERTY_WRITE | BluetoothGattCharacteristic.PROPERTY_READ | BluetoothGattCharacteristic.PROPERTY_NOTIFY,
+//                        BluetoothGattCharacteristic.PERMISSION_WRITE | BluetoothGattCharacteristic.PERMISSION_READ
+//                );
+//
+//                BluetoothGattDescriptor tejaDesp = new BluetoothGattDescriptor(
+//                        UUID.fromString("00002902-0000-1000-8000-00805f9b34fb"),
+//                        BluetoothGattDescriptor.PERMISSION_READ | BluetoothGattDescriptor.PERMISSION_WRITE
+//                );
+//
+//                callmeTej.addDescriptor(tejaDesp);
+//                teja.addCharacteristic(callmeTej);
+//
+//// Assuming you have 'gattServer' and 'deviceId' available
+//                if (gattServer != null) {
+//                    gattServer.addService(teja);
+//                    mDevices.put(deviceId, new BluetoothDeviceCache(gattServer));
+//                }
 
                 result.success(null);
                 break;
