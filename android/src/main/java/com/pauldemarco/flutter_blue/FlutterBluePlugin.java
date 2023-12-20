@@ -311,6 +311,9 @@ public class FlutterBluePlugin implements FlutterPlugin, ActivityAware, MethodCa
                 } else {
                     gattServer = device.connectGatt(context, options.getAndroidAutoConnect(), mGattCallback);
                 }
+
+
+
 //                BluetoothGattService teja = new BluetoothGattService(
 //                        UUID.fromString("69e318bc-1dd0-49b5-92cb-8540817f47a2"),
 //                        BluetoothGattService.SERVICE_TYPE_PRIMARY
