@@ -333,8 +333,9 @@ public class FlutterBluePlugin implements FlutterPlugin, ActivityAware, MethodCa
 //// Assuming you have 'gattServer' and 'deviceId' available
 //                if (gattServer != null) {
 //                    gattServer.addService(teja);
-//                    mDevices.put(deviceId, new BluetoothDeviceCache(gattServer));
+//
 //                }
+                mDevices.put(deviceId, new BluetoothDeviceCache(gattServer));
 
                 result.success(null);
                 break;
